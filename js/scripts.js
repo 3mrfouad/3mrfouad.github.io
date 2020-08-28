@@ -69,7 +69,7 @@ hint.id = 'hintP';
 /* Elements Text Content */
 gameHeader.textContent = 'Hangman';
 wrongGuessHeader.textContent = 'Ouch:';
-enterGuessLabel.textContent = 'Feeling Lucky! ... Enter A Guess ';
+enterGuessLabel.textContent = 'Feeling Lucky! ... Enter A Guess';
 footerPara.textContent = "\251 Amr Fouad";
 dashedWord.textContent = 'Liverpool';
 /* Others */
