@@ -22,6 +22,7 @@ const gameDiv = document.createElement('div');
 const wrongGuessDiv = document.createElement('div');
 const drawingDiv = document.createElement('div');
 const dashedWordDiv = document.createElement('div');
+const counterDiv = document.createElement('div');
 /* Footer */
 const pageFooter = document.createElement('footer');
 /* Generic breakline */
@@ -56,6 +57,7 @@ gameDiv.id = 'gamediv';
 wrongGuessDiv.id = 'wrongguessdiv';
 drawingDiv.id = "drawingdiv"
 dashedWordDiv.id = 'dashedworddiv'
+counterDiv.id = 'counterdiv';
 enterGuessLabel.id = "enterguesslabel"
 userGuessTxtBox.id = 'guessinputtxt';
 gameInputSubmt.id = 'gusssubmitbtn'
@@ -85,6 +87,7 @@ document.body.appendChild(gameDiv);
 document.body.appendChild(dashedWordDiv);
 document.body.appendChild(drawingDiv);
 document.body.appendChild(wrongGuessDiv);
+document.body.appendChild(counterDiv);
 document.body.appendChild(pageFooter);
 /* HTML DIVs */
 gameDiv.appendChild(gameHeader);
@@ -94,7 +97,7 @@ wrongGuessDiv.appendChild(wrongGuessUL);
 drawingDiv.appendChild(hanmanImages);
 dashedWordDiv.appendChild(dashedWord);
 dashedWordDiv.appendChild(playAgainForm);
-drawingDiv.appendChild(chancescounter);
+counterDiv.appendChild(chancescounter);
 dashedWordDiv.appendChild(hint);
 /* HTML Forms */
 gameForm.appendChild(enterGuessLabel);
@@ -123,6 +126,7 @@ let buzzelWordHint = "";
 hint.textContent = buzzelWordHint;
 let chancesCntr = 1;
 let winner = Boolean(false);
+let blinkTimer = "";
 /* Start Game */
 document.body.onload = initializeGame();
 /* Game form event listener */
@@ -176,9 +180,13 @@ function initializeGame() {
     gameInputSubmt.style.backgroundColor = "#71be3e";
     playAgainSubmt.style.visibility = "hidden";
     gameInputSubmt.disabled = false;
+    userGuessTxtBox.disabled = false;
     chancescounter.style.color = "#71be3e";
     chancescounter.textContent = `${8 - chancesCntr}`;
-
+    playAgainSubmt.style.backgroundColor = "#ff0000";
+    playAgainSubmt.value = "Restart";
+    chancescounter.style.display = 'block';
+    clearInterval(blinkTimer);
 }
 /* Function that converts a WORD into dashes */
 function dashAword(wordToDash) {
@@ -236,10 +244,12 @@ function updateWrongGuessesList(wrongGuess) {
         chancescounter.textContent = `${8 - chancesCntr}`;
         if ((8 - chancesCntr) < 4) {
             chancescounter.style.color = "#ff0000";
+            clearInterval(blinkTimer);
+            blinkCounter();
         }
     }
     else {
-        confirm("Repeated Wrong Guess!");
+        confirm("Invalid Entry: Repeated Wrong Guess!");
     }
 }
 /* Function that updates the dashed word as it gets updated */
@@ -265,9 +275,11 @@ function updateDashedWord(buzzleWord = "", userInput = "") {
 /* Function that runs Game over sequance */
 function gameOver() {
     hanmanImages.src = "img/gameover.jpg";
-    playAgainSubmt.value = "Play Again!";
-    gameInputSubmt.disabled = true;
     gameInputSubmt.style.backgroundColor = "#D3D3D3";
+    gameInputSubmt.disabled = true;
+    userGuessTxtBox.disabled = true;
+    playAgainSubmt.style.backgroundColor = "#ff0000";
+    playAgainSubmt.value = "Play Again!";
 }
 /* Function that runsWinning sequance */
 function CallaWinner() {
@@ -275,6 +287,7 @@ function CallaWinner() {
     playAgainSubmt.value = "Play Again!";
     playAgainSubmt.style.backgroundColor = "#71be3e";
     gameInputSubmt.disabled = true;
+    userGuessTxtBox.disabled = true;
     gameInputSubmt.style.backgroundColor = "#D3D3D3";
     winner = true;
 
@@ -299,4 +312,10 @@ function randomWord() {
     else {
         buzzelWord = wordsToPickFrom.Germany[Math.floor(Math.random() * wordsToPickFrom.Germany.length)];
     }
+}
+/* Function that blinks the counter text when less than 4 */
+function blinkCounter(){
+    blinkTimer = setInterval(function () {
+        chancescounter.style.display = (chancescounter.style.display == 'none' ? '' : 'none');
+    }, 1000);
 }
