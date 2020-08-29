@@ -280,6 +280,7 @@ function gameOver() {
     userGuessTxtBox.disabled = true;
     playAgainSubmt.style.backgroundColor = "#ff0000";
     playAgainSubmt.value = "Play Again!";
+    confirm(buzzelWord);
 }
 /* Function that runsWinning sequance */
 function CallaWinner() {
