@@ -58,7 +58,7 @@ Date of last edit: August 28, 2020 3:00 am
   color: #ffffff;
   text-align: center;
   font-weight:bolder;
-  font-size: 24px;
+  font-size: 20px;
   margin:0 auto;
 }
 #dashedworddiv input{
@@ -233,7 +233,7 @@ html{
       color: #ffffff;
       text-align: center;
       font-weight:bolder;
-      font-size: 24px;
+      font-size: 20px;
       margin-top: 40%; 
     }
     #dashedworddiv input{

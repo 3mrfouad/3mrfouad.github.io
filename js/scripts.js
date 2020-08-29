@@ -146,6 +146,8 @@ gameForm.addEventListener('submit', (event) => {
 
     if (chancesCntr == 8) {
         gameOver();
+        hint.textContent = `That was: ${buzzelWord}`;
+        hint.style.color = '#ff0000';
     }
 
     if (guessRightLetters.join("") == buzzelWord.toLocaleLowerCase()) {
@@ -187,6 +189,7 @@ function initializeGame() {
     playAgainSubmt.value = "Restart";
     chancescounter.style.display = 'block';
     clearInterval(blinkTimer);
+    hint.style.color = '#ffffff';
 }
 /* Function that converts a WORD into dashes */
 function dashAword(wordToDash) {
@@ -280,7 +283,6 @@ function gameOver() {
     userGuessTxtBox.disabled = true;
     playAgainSubmt.style.backgroundColor = "#ff0000";
     playAgainSubmt.value = "Play Again!";
-    confirm(buzzelWord);
 }
 /* Function that runsWinning sequance */
 function CallaWinner() {
@@ -303,7 +305,7 @@ function randomWord() {
     const hintsEquiv = ['England', 'Spain', 'Germany'];
 
     buzzelWordHint = hintsEquiv[Math.floor(Math.random() * hintsEquiv.length)];
-    hint.textContent = `Football Club in ${buzzelWordHint}`;
+    hint.textContent = `Hint: Football Club in ${buzzelWordHint}`;
     if (buzzelWordHint == 'England') {
         buzzelWord = wordsToPickFrom.England[Math.floor(Math.random() * wordsToPickFrom.England.length)];
     }
