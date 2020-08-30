@@ -74,7 +74,7 @@ playAgainForm.id = 'playagainform';
 wrongGuessUL.id = 'wrongguessul';
 wrongGuessLI.id='wronguessli';
 /* Elements Text Content */
-gameHeader.textContent = 'Hangman';
+gameHeader.textContent = 'Hangman Mobile';
 //wrongGuessHeader.textContent = 'OUCH !';
 //enterGuessLabel.textContent = 'Feeling Luck!';
 //footerPara.textContent = "\251 Amr Fouad";
