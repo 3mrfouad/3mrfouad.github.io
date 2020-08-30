@@ -28,10 +28,7 @@ footer {
 #hangmanimg {
     grid-area: hangmanimgarea;
     width: 100%;
-    height: fit-content;
-/*     border: .2em solid #2F4641;
- */    object-fit: cover;
- background: red;
+    object-fit: cover;
     opacity: .7;
 }
 #gameheader {
@@ -66,6 +63,7 @@ footer {
     background-color:#20556F;
     text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
     0px -5px 35px rgba(255,255,255,0.3);
+    height: 100%;
 }
 #hintP {
    grid-area: hintparea;
@@ -89,6 +87,7 @@ footer {
     background-color: #2F4641;
     text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
     0px -5px 35px rgba(255,255,255,0.3);
+    height: 100%;
 
 }
 /* #wrongguessheader {
@@ -102,12 +101,9 @@ footer {
 #wrongguessul {
     grid-area: wrongguessularea; 
     list-style-position: inside;
-    height: fit-content;
     font-size: 1.3em;
     color: #ff0000;
-/*     border: .2em solid #2F4641;
- */    overflow-wrap: break-word;
-    height: 29.5%;;
+    overflow-wrap: break-word;
     background-color: #f18f8f25;
     text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
     0px -5px 35px rgba(255,255,255,0.3);
@@ -124,19 +120,30 @@ footer {
 #chancescounterP {
     grid-area: chancescounterParea ;
     white-space: pre-wrap;
-    height: 250%;
     text-align: center;
     line-height: em;
     font-size: 1.3em;
     text-indent: .1em;
-/*     border: .2em solid #2F4641;
- */    height: 227%;
     padding-top: 1em;
     color: #61851b;
     background-color: #d7f0a462;
     text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
     0px -5px 35px rgba(255,255,255,0.3);
+    height:
 } 
+#wrongguessdiv
+{
+   height: 29%;
+    margin:0;
+    grid-area: wrongguessdivarea;
+    display: grid;
+    grid-template-columns:Calc(100%/3) Calc(100%/3) Calc(100%/3);
+    grid-template-rows: 100%;
+    grid-template-areas: 
+    "hangmanimgarea  chancescounterParea wrongguessularea";
+
+
+}
 body{
     display: grid;
     grid-template-columns:100%;
@@ -149,19 +156,21 @@ body{
 
 }
 #gamediv {
+
     height:100%;
     display: grid;
     grid-area: gamedivParea ;
     grid-template-columns: Calc(100%/3) Calc(100%/3) Calc(100%/3);
-    grid-template-rows: 14% 13% 15% 8% 63%;
+    grid-template-rows: 14% 13% 15% 71%;
     grid-template-areas: 
     "h1area h1area h1area"
     "gameformarea gameformarea gameformarea"
     "playagainformarea playagainformarea playagainformarea"
-    "hangmanimgarea chancescounterParea wrongguessularea"
-    "hangmanimgarea  chancescounterPare wrongguessularea";
+    "wrongguessdivarea wrongguessdivarea wrongguessdivarea"
+
   } 
   #gameform {
+    background-color: #2F4641;
     grid-area: gameformarea; 
     display: grid;
     grid-template-columns: Calc(100%/3) Calc(100%/3) Calc(100%/3);

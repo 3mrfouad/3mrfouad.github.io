@@ -19,7 +19,7 @@ Define document elements (Tags)
 */
 /* Divisions */
 const gameDiv = document.createElement('div');
-//const wrongGuessDiv = document.createElement('div');
+const wrongGuessDiv = document.createElement('div');
 //const drawingDiv = document.createElement('div');
 //const dashedWordDiv = document.createElement('div');
 const counterDiv = document.createElement('div');
@@ -54,7 +54,7 @@ Assign elements parameters
 */
 /* Elements IDs */
 gameDiv.id = 'gamediv';
-//wrongGuessDiv.id = 'wrongguessdiv';
+wrongGuessDiv.id = 'wrongguessdiv';
 //drawingDiv.id = "drawingdiv"
 //dashedWordDiv.id = 'dashedworddiv'
 counterDiv.id = 'counterdiv';
@@ -96,7 +96,7 @@ Layout he page structure (skeleton)
 document.body.appendChild(gameDiv);
 //document.body.appendChild(dashedWordDiv);
 //document.body.appendChild(drawingDiv);
-//document.body.appendChild(wrongGuessDiv);
+gameDiv.appendChild(wrongGuessDiv);
 //document.body.appendChild(counterDiv);
 document.body.appendChild(pageFooter);
 /* HTML DIVs */
@@ -105,13 +105,13 @@ gameDiv.appendChild(gameForm);
 gameDiv.appendChild(playAgainForm);
 
 //gameDiv.appendChild(wrongGuessHeader);
-gameDiv.appendChild(wrongGuessUL);
-gameDiv.appendChild(hanmanImages);
+wrongGuessDiv.appendChild(wrongGuessUL);
+wrongGuessDiv.appendChild(hanmanImages);
 playAgainForm.appendChild(dashedWord);
 playAgainForm.appendChild(hint);
 playAgainForm.appendChild(playAgainSubmt);
 
-gameDiv.appendChild(chancescounter);
+wrongGuessDiv.appendChild(chancescounter);
 
 /* HTML Forms */
 //gameForm.appendChild(enterGuessLabel);
