@@ -19,20 +19,20 @@ Define document elements (Tags)
 */
 /* Divisions */
 const gameDiv = document.createElement('div');
-const wrongGuessDiv = document.createElement('div');
-const drawingDiv = document.createElement('div');
-const dashedWordDiv = document.createElement('div');
+//const wrongGuessDiv = document.createElement('div');
+//const drawingDiv = document.createElement('div');
+//const dashedWordDiv = document.createElement('div');
 const counterDiv = document.createElement('div');
 /* Footer */
 const pageFooter = document.createElement('footer');
 /* Generic breakline */
-const lineBreak = document.createElement('br');
+//const lineBreak = document.createElement('br');
 /* Headers */
 const gameHeader = document.createElement('h1');
-const wrongGuessHeader = document.createElement('h3');
+//const wrongGuessHeader = document.createElement('p');
 /* Form */
 const gameForm = document.createElement('form');
-const enterGuessLabel = document.createElement('p');
+//const enterGuessLabel = document.createElement('p');
 const userGuessTxtBox = document.createElement('input');
 const gameInputSubmt = document.createElement('input');
 const playAgainForm = document.createElement('form');
@@ -41,7 +41,7 @@ const playAgainSubmt = document.createElement('input');
 const wrongGuessUL = document.createElement('ul');
 const wrongGuessLI = document.createElement('li');
 /* Paragraphs */
-const footerPara = document.createElement('p');
+//const footerPara = document.createElement('p');
 const dashedWord = document.createElement('p');
 const hint = document.createElement('p');
 const chancescounter = document.createElement('p');
@@ -54,29 +54,39 @@ Assign elements parameters
 */
 /* Elements IDs */
 gameDiv.id = 'gamediv';
-wrongGuessDiv.id = 'wrongguessdiv';
-drawingDiv.id = "drawingdiv"
-dashedWordDiv.id = 'dashedworddiv'
+//wrongGuessDiv.id = 'wrongguessdiv';
+//drawingDiv.id = "drawingdiv"
+//dashedWordDiv.id = 'dashedworddiv'
 counterDiv.id = 'counterdiv';
-enterGuessLabel.id = "enterguesslabel"
+//enterGuessLabel.id = "enterguesslabel"
 userGuessTxtBox.id = 'guessinputtxt';
 gameInputSubmt.id = 'gusssubmitbtn'
 pageFooter.id = 'pagefooter';
 hanmanImages.id = 'hangmanimg'
 dashedWord.id = 'dashedwordP';
 chancescounter.id = 'chancescounterP';
+playAgainSubmt.id = 'playAgainSubmtbutn';
+gameHeader.id = 'gameheader';
 hint.id = 'hintP';
+gameForm.id = 'gameform';
+playAgainForm.id = 'playagainform';
+//wrongGuessHeader.id ='wrongguessheader';
+wrongGuessUL.id = 'wrongguessul';
+wrongGuessLI.id='wronguessli';
 /* Elements Text Content */
 gameHeader.textContent = 'Hangman';
-wrongGuessHeader.textContent = 'Ouch:';
-enterGuessLabel.textContent = 'Feeling Lucky! ... Enter A Guess';
-footerPara.textContent = "\251 Amr Fouad";
+//wrongGuessHeader.textContent = 'OUCH !';
+//enterGuessLabel.textContent = 'Feeling Luck!';
+//footerPara.textContent = "\251 Amr Fouad";
+pageFooter.textContent = "\251 Amr Fouad";
 dashedWord.textContent = 'Liverpool';
 /* Others */
 userGuessTxtBox.placeholder = 'Enter a letter ';
 gameInputSubmt.type = "Submit";
+gameInputSubmt.value = "Guess";
 playAgainSubmt.type = "Submit";
 playAgainSubmt.value = "Restart";
+userGuessTxtBox.maxLength="1";
 /*
 ------------------------------------------------ 
 Layout he page structure (skeleton)
@@ -84,32 +94,35 @@ Layout he page structure (skeleton)
 */
 /* HTML Body */
 document.body.appendChild(gameDiv);
-document.body.appendChild(dashedWordDiv);
-document.body.appendChild(drawingDiv);
-document.body.appendChild(wrongGuessDiv);
-document.body.appendChild(counterDiv);
+//document.body.appendChild(dashedWordDiv);
+//document.body.appendChild(drawingDiv);
+//document.body.appendChild(wrongGuessDiv);
+//document.body.appendChild(counterDiv);
 document.body.appendChild(pageFooter);
 /* HTML DIVs */
 gameDiv.appendChild(gameHeader);
 gameDiv.appendChild(gameForm);
-wrongGuessDiv.appendChild(wrongGuessHeader);
-wrongGuessDiv.appendChild(wrongGuessUL);
-drawingDiv.appendChild(hanmanImages);
-dashedWordDiv.appendChild(dashedWord);
-dashedWordDiv.appendChild(playAgainForm);
-counterDiv.appendChild(chancescounter);
-dashedWordDiv.appendChild(hint);
-/* HTML Forms */
-gameForm.appendChild(enterGuessLabel);
-gameForm.appendChild(lineBreak);
-gameForm.appendChild(userGuessTxtBox);
-gameForm.appendChild(lineBreak);
-gameForm.appendChild(gameInputSubmt);
+gameDiv.appendChild(playAgainForm);
+
+//gameDiv.appendChild(wrongGuessHeader);
+gameDiv.appendChild(wrongGuessUL);
+gameDiv.appendChild(hanmanImages);
+playAgainForm.appendChild(dashedWord);
+playAgainForm.appendChild(hint);
 playAgainForm.appendChild(playAgainSubmt);
+
+gameDiv.appendChild(chancescounter);
+
+/* HTML Forms */
+//gameForm.appendChild(enterGuessLabel);
+//gameForm.appendChild(lineBreak);
+gameForm.appendChild(userGuessTxtBox);
+//gameForm.appendChild(lineBreak);
+gameForm.appendChild(gameInputSubmt);
 /* HTML UL */
 wrongGuessUL.appendChild(wrongGuessLI);
 /* HTML Footer */
-pageFooter.appendChild(footerPara);
+//pageFooter.appendChild(footerPara);
 /*
 *==================================================
                 Game Logic
@@ -146,8 +159,6 @@ gameForm.addEventListener('submit', (event) => {
 
     if (chancesCntr == 8) {
         gameOver();
-        hint.textContent = `That was: ${buzzelWord}`;
-        hint.style.color = '#ff0000';
     }
 
     if (guessRightLetters.join("") == buzzelWord.toLocaleLowerCase()) {
@@ -179,17 +190,16 @@ function initializeGame() {
     chancesCntr = 1;
     userGuessTxtBox.value = "";
     hanmanImages.src = "img/hangman-0.gif";
-    gameInputSubmt.style.backgroundColor = "#71be3e";
-    playAgainSubmt.style.visibility = "hidden";
+ //   gameInputSubmt.style.backgroundColor = "#71be3e";
+   // playAgainSubmt.style.visibility = "hidden";
     gameInputSubmt.disabled = false;
     userGuessTxtBox.disabled = false;
-    chancescounter.style.color = "#71be3e";
-    chancescounter.textContent = `${8 - chancesCntr}`;
-    playAgainSubmt.style.backgroundColor = "#ff0000";
+ //.style.color = "#71be3e";
+    chancescounter.textContent = `${8 - chancesCntr}\nChances left`;
+  //  playAgainSubmt.style.backgroundColor = "#ff0000";
     playAgainSubmt.value = "Restart";
-    chancescounter.style.display = 'block';
+    //chancescounter.style.display = 'block';
     clearInterval(blinkTimer);
-    hint.style.color = '#ffffff';
 }
 /* Function that converts a WORD into dashes */
 function dashAword(wordToDash) {
@@ -244,9 +254,9 @@ function updateWrongGuessesList(wrongGuess) {
         wrongGuessLI.textContent = guessedWrongLetters;
         hanmanImages.src = "img/hangman-" + chancesCntr + ".jpg";
         chancesCntr++;
-        chancescounter.textContent = `${8 - chancesCntr}`;
+        chancescounter.textContent = `${8 - chancesCntr}\nChances left`;
         if ((8 - chancesCntr) < 4) {
-            chancescounter.style.color = "#ff0000";
+         //   chancescounter.style.color = "#ff0000";
             clearInterval(blinkTimer);
             blinkCounter();
         }
@@ -278,20 +288,20 @@ function updateDashedWord(buzzleWord = "", userInput = "") {
 /* Function that runs Game over sequance */
 function gameOver() {
     hanmanImages.src = "img/gameover.jpg";
-    gameInputSubmt.style.backgroundColor = "#D3D3D3";
+   // gameInputSubmt.style.backgroundColor = "#D3D3D3";
     gameInputSubmt.disabled = true;
     userGuessTxtBox.disabled = true;
-    playAgainSubmt.style.backgroundColor = "#ff0000";
+ //   playAgainSubmt.style.backgroundColor = "#ff0000";
     playAgainSubmt.value = "Play Again!";
 }
 /* Function that runsWinning sequance */
 function CallaWinner() {
     hanmanImages.src = "img/youwin.jpg";
     playAgainSubmt.value = "Play Again!";
-    playAgainSubmt.style.backgroundColor = "#71be3e";
+ //   playAgainSubmt.style.backgroundColor = "#71be3e";
     gameInputSubmt.disabled = true;
     userGuessTxtBox.disabled = true;
-    gameInputSubmt.style.backgroundColor = "#D3D3D3";
+  //  gameInputSubmt.style.backgroundColor = "#D3D3D3";
     winner = true;
 
 }
@@ -305,7 +315,7 @@ function randomWord() {
     const hintsEquiv = ['England', 'Spain', 'Germany'];
 
     buzzelWordHint = hintsEquiv[Math.floor(Math.random() * hintsEquiv.length)];
-    hint.textContent = `Hint: Football Club in ${buzzelWordHint}`;
+    hint.textContent = `Football Club in ${buzzelWordHint}`;
     if (buzzelWordHint == 'England') {
         buzzelWord = wordsToPickFrom.England[Math.floor(Math.random() * wordsToPickFrom.England.length)];
     }

@@ -1,0 +1,183 @@
+*{
+    margin:0;
+    padding:0; 
+    overflow: auto;
+/*     border: .1px solid #ff0000;
+ */ font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+html{
+    height:100%;
+    background-color:#c2a8727a;
+}
+div, #pagefooter{
+    margin:5%;
+    width: auto;
+}
+footer {
+    text-align: center;
+    grid-area:footerarea; 
+    background-color: #3E5385;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#hangmanimg {
+    grid-area: hangmanimgarea;
+    width: 100%;
+    height: fit-content;
+/*     border: .2em solid #2F4641;
+ */    object-fit: cover;
+ background: red;
+    opacity: .7;
+}
+#gameheader {
+    grid-area:h1area; 
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#ff8e00;
+    color:white;
+    text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
+                 0px -5px 35px rgba(255,255,255,0.3);
+    margin-bottom: .3em;
+    
+}
+::placeholder {
+    color: #8FA2AB;
+    opacity: 1; /* Firefox */
+  }
+#guessinputtxt {
+    grid-area:guessinputtxtarea ;
+    text-align: center;
+    background-color:#20556F;
+    border:none;
+    color: #ffffff;
+    font-size: 1.5em;
+}
+#gusssubmitbtn {
+    grid-area: gusssubmitbtnarea ; 
+    font-size: 1.3em;
+    color: #ffffff;
+    background-color:#20556F;
+    text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
+    0px -5px 35px rgba(255,255,255,0.3);
+}
+#hintP {
+   grid-area: hintparea;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color:#ffffff;
+}
+#dashedwordP {
+    grid-area: dashedwordParea; 
+    padding-left:5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#ffffff;
+}
+#playAgainSubmtbutn {
+    color: #ffffff; 
+    grid-area: playAgainSubmtbutnarea; 
+    font-size: 1.1em;
+    background-color: #2F4641;
+    text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
+    0px -5px 35px rgba(255,255,255,0.3);
+
+}
+/* #wrongguessheader {
+    grid-area:wrongguessheaderarea; 
+    text-align: center;
+    align-items: center;
+    font-size: 1.3em;
+    border: .2em solid #ff8e00;
+
+} */
+#wrongguessul {
+    grid-area: wrongguessularea; 
+    list-style-position: inside;
+    height: fit-content;
+    font-size: 1.3em;
+    color: #ff0000;
+/*     border: .2em solid #2F4641;
+ */    overflow-wrap: break-word;
+    height: 29.5%;;
+    background-color: #f18f8f25;
+    text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
+    0px -5px 35px rgba(255,255,255,0.3);
+}
+#wronguessli{
+    padding: 5%;
+    list-style-type: none;
+    padding:10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#chancescounterP {
+    grid-area: chancescounterParea ;
+    white-space: pre-wrap;
+    height: 250%;
+    text-align: center;
+    line-height: em;
+    font-size: 1.3em;
+    text-indent: .1em;
+/*     border: .2em solid #2F4641;
+ */    height: 227%;
+    padding-top: 1em;
+    color: #61851b;
+    background-color: #d7f0a462;
+    text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
+    0px -5px 35px rgba(255,255,255,0.3);
+} 
+body{
+    display: grid;
+    grid-template-columns:100%;
+    grid-template-rows: 90% 10%;
+    grid-template-areas: 
+    "gamedivParea"
+    "footerarea";
+    height:100%
+
+
+}
+#gamediv {
+    height:100%;
+    display: grid;
+    grid-area: gamedivParea ;
+    grid-template-columns: Calc(100%/3) Calc(100%/3) Calc(100%/3);
+    grid-template-rows: 14% 13% 15% 8% 63%;
+    grid-template-areas: 
+    "h1area h1area h1area"
+    "gameformarea gameformarea gameformarea"
+    "playagainformarea playagainformarea playagainformarea"
+    "hangmanimgarea chancescounterParea wrongguessularea"
+    "hangmanimgarea  chancescounterPare wrongguessularea";
+  } 
+  #gameform {
+    grid-area: gameformarea; 
+    display: grid;
+    grid-template-columns: Calc(100%/3) Calc(100%/3) Calc(100%/3);
+    grid-template-rows: 100%;
+    grid-template-areas: 
+    "guessinputtxtarea guessinputtxtarea gusssubmitbtnarea";
+  } 
+  #playagainform{
+    margin-top:.5em;
+    background-color:#2F4641;
+    margin-bottom: .5em;
+    grid-area: playagainformarea;
+    display: grid;
+    grid-template-columns:Calc(100%/3) Calc(100%/3) Calc(100%/3);
+    grid-template-rows: 50% 50%;
+    grid-template-areas: 
+    "dashedwordParea dashedwordParea playAgainSubmtbutnarea"
+    "hintparea hintparea playAgainSubmtbutnarea" 
+    ;
+  }
