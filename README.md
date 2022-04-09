@@ -11,3 +11,4 @@ Trello board: https://trello.com/b/PyWW2ccb
 
 GitHub Repo: https://github.com/TECHCareers-by-Manpower/javascript-assignment-hangman-3mrfouad.git
 
+Live https://3mrfouad.github.io/
