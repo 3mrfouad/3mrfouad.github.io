@@ -1,9 +1,9 @@
 {
-  "subject": "acct:alice@unrealdomain.ca",
+  "subject": "acct:amr@unrealdomain.ca",
   "links": [
     {
       "rel": "http://webfinger.net/rel/profile-page",
-      "href": "https://unrealdomain.ca/alice"
+      "href": "https://unrealdomain.ca"
     }
   ]
 }
