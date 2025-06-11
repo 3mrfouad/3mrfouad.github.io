@@ -2,8 +2,8 @@
   "subject": "acct:amr@unrealdomain.ca",
   "links": [
     {
-      "rel": "http://webfinger.net/rel/profile-page",
-      "href": "https://unrealdomain.ca/amr"
+      "rel": "http://openid.net/specs/connect/1.0/issuer",
+      "href": "https://unrealdomain.ca"
     }
   ]
 }
